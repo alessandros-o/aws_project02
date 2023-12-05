@@ -1,5 +1,6 @@
 package br.com.alessandro.aws_project02.config;
 
+import br.com.alessandro.aws_project02.repository.ProductEventLogRepository;
 import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
@@ -13,7 +14,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 
 @Configuration
-@EnableDynamoDBRepositories
+@EnableDynamoDBRepositories(basePackageClasses = ProductEventLogRepository.class)
 public class DynamoDBConfig {
 
     @Value("${aws.region}")
